@@ -1,0 +1,15 @@
+[project]
+name = "iykra-fontgen"
+version = "0.1.0"
+description = "Font generator"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flask>=3.0.3",
+    "google-cloud-storage>=2.18.2",
+    "granian>=1.6.3",
+    "gunicorn>=23.0.0",
+    "opencv-python>=4.10.0.84",
+    "pillow>=11.0.0",
+    "ruff>=0.7.2",
+]
