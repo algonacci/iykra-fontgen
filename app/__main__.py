@@ -26,29 +26,23 @@ def ingest_google_fonts(request: Request):
     bucket_name = input_data["bucket_name"]
     prefix = input_data["prefix"]
 
-    ingest_google_font(
-        repo_dir,
-        tff_dir,
-        bucket_name,
-        prefix
-    )
+    ingest_google_font(repo_dir, tff_dir, bucket_name, prefix)
 
-    return jsonify({
-        "status": {
-            "code": 200,
-            "message": "Success doing data ingestion"
-        },
-        "data": None
-    }), 200
+    return jsonify(
+        {
+            "status": {"code": 200, "message": "Success doing data ingestion"},
+            "data": None,
+        }
+    ), 200
 
 
 @app.route("/transform_google_fonts")
 def transform_google_fonts_service(request: Request):
     input_data = request.get_json()
-    bucket_name =input_data["bucket_name"],
-    raw_prefix =input_data["raw_prefix"],
-    cleaned_prefix = input_data["cleaned_prefix"],
-    font_dir = "./fonts",
+    bucket_name = (input_data["bucket_name"],)
+    raw_prefix = (input_data["raw_prefix"],)
+    cleaned_prefix = (input_data["cleaned_prefix"],)
+    font_dir = ("./fonts",)
     dataset_dir = "./datasets"
     transform_google_fonts(
         bucket_name,
@@ -58,13 +52,12 @@ def transform_google_fonts_service(request: Request):
         dataset_dir,
     )
 
-    return jsonify({
-        "status": {
-            "code": 200,
-            "message": "Success doing data transformation"
-        },
-        "data": None
-    }), 200
+    return jsonify(
+        {
+            "status": {"code": 200, "message": "Success doing data transformation"},
+            "data": None,
+        }
+    ), 200
 
 
 if __name__ == "__main__":
