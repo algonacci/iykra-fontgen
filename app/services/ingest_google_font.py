@@ -12,7 +12,7 @@ def clone_git_repo(url: str, target_dir: str) -> bool:
     return process.returncode == 0
 
 
-def copy_files_by_ext(source_dir: str, target_dir: str, ext: str = ".tff") -> None:
+def copy_files_by_ext(source_dir: str, target_dir: str, ext: str = ".ttf") -> None:
     for root, _, filenames in os.walk(source_dir):
         for filename in filenames:
             if not filename.endswith(ext):
